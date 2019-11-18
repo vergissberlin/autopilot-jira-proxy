@@ -6,8 +6,13 @@ const port = 8080 // default port to listen
 app.get( '/', ( req, res ) => {
 		res.json({nothing: 'here'})
 } )
+
 app.get( '/ticket/create', ( req, res ) => {
-		res.json({nothing: 'here'})
+		res.json({nothing: 'here get'})
+})
+
+app.post( '/ticket/create', ( req, res ) => {
+		res.json({nothing: 'here post'})
 })
 
 // start the Express server
