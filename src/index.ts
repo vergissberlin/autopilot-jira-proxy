@@ -5,13 +5,24 @@ const app = express()
 const PORT = Number(process.env.PORT) || 8080
 const HOST = '0.0.0.0'
 
+/*
+ :: Autopilot trigger
+ contact_added
+ contact_updated
+ contact_unsubscribed
+ contact_added_to_list
+ contact_removed_from_list
+ contact_entered_segment
+ contact_left_segment
+ */
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
 
-app.all( '/', ( req, res ) => {
+app.all( '*', ( req, res ) => {
 	// tslint:disable-next-line:no-console
 	console.log(req.body)
 	// tslint:disable-next-line:no-console
@@ -25,14 +36,6 @@ app.all( '/', ( req, res ) => {
 		query: req.query
 	})
 } )
-
-app.get( '/ticket/create', ( req, res ) => {
-		res.json({nothing: 'here get'})
-})
-
-app.post( '/ticket/create', ( req, res ) => {
-		res.json({nothing: 'here post'})
-})
 
 // start the Express server
 app.listen( PORT, HOST, () => {
