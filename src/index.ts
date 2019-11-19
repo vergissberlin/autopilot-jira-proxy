@@ -1,6 +1,7 @@
 import express from 'express'
 const app = express()
-const port = 8080 // default port to listen
+const PORT = 8080
+const HOST = '0.0.0.0'
 
 // define a route handler for the default home page
 app.get( '/', ( req, res ) => {
@@ -16,7 +17,7 @@ app.post( '/ticket/create', ( req, res ) => {
 })
 
 // start the Express server
-app.listen( port, () => {
+app.listen( PORT, HOST, () => {
 		// tslint:disable-next-line:no-console
-		console.log( `server started at http://0.0.0.0:${ port }` )
+		console.log( `server started at http://0.0.0.0:${ PORT }` )
 })

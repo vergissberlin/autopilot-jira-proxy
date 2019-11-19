@@ -2,6 +2,8 @@
 
 !/src
 !/.gitignore
+!/Dockerfile
 !/package*
+!/README.md
 !/tsconfig.json
 !/tslint.json
