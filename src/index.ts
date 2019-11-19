@@ -2,7 +2,7 @@ import bodyParser from 'body-parser'
 import express from 'express'
 
 const app = express()
-const PORT = 8090
+const PORT = Number(process.env.PORT) || 8080
 const HOST = '0.0.0.0'
 
 // parse application/x-www-form-urlencoded
