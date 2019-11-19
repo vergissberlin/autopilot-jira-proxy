@@ -8,7 +8,7 @@
         "trailing-comma": [ false ],
         "quotemark": [true, "single", "jsx-double"],
         "semicolon": [true, "never"],
-        "indent": [true, "tabs", 2]
+        "indent": [true, "tabs", 1]
     },
     "rulesDirectory": []
 }
