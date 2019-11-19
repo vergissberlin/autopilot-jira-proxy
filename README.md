@@ -1,5 +1,7 @@
 # autopilot jira proxy
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vergissberlin/autopilot-jira-proxy.svg)](https://greenkeeper.io/)
+
 1. Create Jira tickets with autopilot webhooks
 
 ## Usage
