@@ -32,7 +32,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.all( '*', ( req, res ) => {
-	
+	// tslint:disable-next-line:no-console
+	console.log( `Some path` )
 })
 
 // start the Express server
