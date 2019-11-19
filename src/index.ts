@@ -8,12 +8,6 @@ const HOST = '0.0.0.0'
 const loggerMiddleware = (req: express.Request, res: express.Response, next: () => void) => {
   	// tslint:disable-next-line:no-console
 	console.log(`::: REQUEST ${req.method} ${req.path}`);
-  	// tslint:disable-next-line:no-console
-	console.log(req.body)
-	// tslint:disable-next-line:no-console
-	console.log(req.params)
-	// tslint:disable-next-line:no-console
-	console.log(req.query)
 
 	res.json({
 		body: req.body,
@@ -32,8 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.all( '*', ( req, res ) => {
-	// tslint:disable-next-line:no-console
-	console.log( `Some path` )
+  	// tslint:disable-next-line:no-console
+	  console.log(req.body)
+	  // tslint:disable-next-line:no-console
+	  console.log(req.params)
+	  // tslint:disable-next-line:no-console
+	  console.log(req.query)
 })
 
 // start the Express server
