@@ -5,25 +5,10 @@ const app = express()
 const PORT = Number(process.env.PORT) || 8080
 const HOST = '0.0.0.0'
 
-/*
- :: Autopilot trigger
- contact_added
- contact_updated
- contact_unsubscribed
- contact_added_to_list
- contact_removed_from_list
- contact_entered_segment
- contact_left_segment
- */
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
-app.use(bodyParser.json())
-
-app.all( '*', ( req, res ) => {
-	// tslint:disable-next-line:no-console
+const loggerMiddleware = (req: express.Request, res: express.Response, next: () => void) => {
+  	// tslint:disable-next-line:no-console
+	console.log(`::: REQUEST ${req.method} ${req.path}`);
+  	// tslint:disable-next-line:no-console
 	console.log(req.body)
 	// tslint:disable-next-line:no-console
 	console.log(req.params)
@@ -35,7 +20,20 @@ app.all( '*', ( req, res ) => {
 		params: req.params,
 		query: req.query
 	})
-} )
+  next();
+}
+
+app.use(loggerMiddleware);
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+app.all( '*', ( req, res ) => {
+	
+})
 
 // start the Express server
 app.listen( PORT, HOST, () => {
