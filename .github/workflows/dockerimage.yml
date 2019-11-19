@@ -7,13 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/labeler@v2
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: docker.pkg.github.com/vergissberlin/autopilot-jira-proxy/app
         registry: docker.pkg.github.com
-        username: vergissberlin
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         tag_names: true
         cache: true
