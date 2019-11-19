@@ -5,10 +5,15 @@ on: [push]
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build -t autopilot-jira:$(date +%s) .
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: docker.pkg.github.com/vergissberlin/autopilot-jira-proxy/app
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        tag_names: true
+        cache: true
+  
