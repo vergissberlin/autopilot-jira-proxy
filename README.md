@@ -40,6 +40,8 @@ https://autopilot.docs.apiary.io/#reference/rest-hook-events/unregister-a-rest-h
 
 ### Autopilot trigger
 
+Models https://wanago.io/2018/12/03/typescript-express-tutorial-routing-controllers-middleware/
+
 - contact_added
 - contact_updated
 - contact_unsubscribed
